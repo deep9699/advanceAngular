@@ -1,0 +1,70 @@
+      <div>
+        <button mat-raised-button (click)="onadd()" class="text-white" style="margin-left: 80px;background-color: #337ab7">
+          ADD EMP</button>
+      </div>
+
+      <div>
+        <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search emp">
+      </mat-form-field>
+
+      <table mat-table [dataSource]="empDataSource" class="mat-elevation-z8"  width=50%>
+
+
+
+        <ng-container matColumnDef="empname">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.empname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="empmobile">
+            <th mat-header-cell *matHeaderCellDef> Mobile </th>
+            <td mat-cell *matCellDef="let element"> {{element.empmobile}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="empcity">
+              <th mat-header-cell *matHeaderCellDef> City </th>
+              <td mat-cell *matCellDef="let element"> {{element.empcity}} </td>
+            </ng-container>
+
+          <ng-container matColumnDef="empgender">
+                <th mat-header-cell *matHeaderCellDef> gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.empgender}} </td>
+              </ng-container>
+
+
+
+
+                          <ng-container matColumnDef="Action">
+                            <th mat-header-cell *matHeaderCellDef><b>ACTION</b> </th>
+                            <td mat-cell *matCellDef="let element">
+
+
+                               <div>
+
+                                <button mat-raised-button (click)="onUpdate(element)" class="text-white" style="background-color:#337ab7">
+                                  EDIT</button>&nbsp;&nbsp;&nbsp;
+
+
+                              <button mat-raised-button color="warn" (click)="onDelete(element)"  >
+                               DELETE</button>
+
+                              </div>
+                            </td>
+                          </ng-container>
+
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <br><br>
+
+          <br>
+          <br>
+
+
+      </div>
+
